@@ -33,6 +33,9 @@ public class OrderController {
 		HttpSession session = request.getSession();
 		
 		MemberDto memberInfo = (MemberDto)session.getAttribute("memberInfo");
+		System.out.println(goodsInfo);
+		// {goodsId=2, goodsTitle=스프링 프로젝트3, goodsSalesPrice=20700, goodsFileName=스크린샷(93).png, orderGoodsQty=1, goodsDeliveryPrice=400}
+
 		
 		session.setAttribute("goodsInfo", goodsInfo);
 		session.setAttribute("orderer", memberInfo);
