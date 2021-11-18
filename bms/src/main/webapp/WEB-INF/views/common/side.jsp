@@ -77,6 +77,7 @@
 				<ul>
 					<li><a href="${contextPath}/mypage/listMyOrderHistory.do">주문내역 조회</a></li>
 					<li><a href="${contextPath}/mypage/myDetailInfo.do">내 정보 수정</a></li>
+					<li><a href="${contextPath}/cart/cartList.do">장바구니</a></li>
 					<li><a href="${contextPath}/main/main.do">메인화면으로 이동</a></li>
 				</ul>
 			</li>
