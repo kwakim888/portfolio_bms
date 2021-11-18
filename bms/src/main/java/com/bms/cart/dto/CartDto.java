@@ -11,6 +11,7 @@ public class CartDto {
 	private String memberId;
 	private int goodsId;
 	private int cartGoodsQty;
+	private String goodsTitle;
 	private Date credate;
 	
 	public int getCartId() {
@@ -36,6 +37,12 @@ public class CartDto {
 	}
 	public void setCartGoodsQty(int cartGoodsQty) {
 		this.cartGoodsQty = cartGoodsQty;
+	}
+	public String getGoodsTitle() {
+		return goodsTitle;
+	}
+	public void setGoodsTitle(String goodsTitle) {
+		this.goodsTitle = goodsTitle;
 	}
 	public Date getCredate() {
 		return credate;

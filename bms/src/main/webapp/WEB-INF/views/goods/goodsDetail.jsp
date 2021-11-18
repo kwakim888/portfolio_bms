@@ -83,7 +83,7 @@
 	    
 	}
 	
-	function fn_cart_each_goods(goodsId, memberId) {
+	function fn_cart_each_goods(goodsId, memberId, goodsTitle) {
 		
 		var orderGoodsQty = document.getElementById("orderGoodsQty");
 		var isLogOn = document.getElementById("isLogOn").value;
@@ -98,18 +98,22 @@
 		var i_goods_id			= document.createElement("input");
 		var i_member_id 		= document.createElement("input");
 		var i_cart_goods_qty 	= document.createElement("input");
+		var i_goods_title		= document.createElement("input");
 		
 		i_goods_id.name			= "goodsId";
 		i_member_id.name		= "memberId";
 		i_cart_goods_qty.name	= "cartGoodsQty";
+		i_goods_title.name		= "goodsTitle";
 		
 		i_goods_id.value		= goodsId;
 		i_member_id.value		= memberId;
 		i_cart_goods_qty.value	= orderGoodsQty.value;
+		i_goods_title.value		= goodsTitle;
 		
 		formObj.appendChild(i_goods_id);
 		formObj.appendChild(i_member_id);
 		formObj.appendChild(i_cart_goods_qty);
+		formObj.appendChild(i_goods_title);
 		
 		document.body.appendChild(formObj);
 		formObj.method = "post";
@@ -202,7 +206,7 @@
 		</table>
 			<ul>
 				<li>
-					<a class="cart" href="javascript:fn_cart_each_goods('${goods.goodsId}','${member.memberId}')">장바구니 추가 </a>
+					<a class="cart" href="javascript:fn_cart_each_goods('${goods.goodsId}','${member.memberId}','${goods.goodsTitle }')">장바구니 추가 </a>
 				</li>
 				<li>
 					<a class="buy" href="javascript:fn_order_each_goods('${goods.goodsId}','${goods.goodsTitle}','${goods.goodsSalesPrice}','${goods.goodsFileName}' , '${goods.goodsDeliveryPrice}')">구매하기 </a>

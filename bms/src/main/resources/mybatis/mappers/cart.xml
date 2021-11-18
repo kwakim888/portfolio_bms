@@ -13,8 +13,9 @@
 			  FROM
 			  		T_SHOPPING_CART),
 			  #{memberId},
-			  TO_NUMBER(#{goodsId}),
-			  TO_NUMBER(#{cartGoodsQty}),
+			  #{goodsId},
+			  #{cartGoodsQty},
+			  #{goodsTitle},
 			  SYSDATE)
 	</insert>
 	

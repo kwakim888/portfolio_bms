@@ -1,5 +1,10 @@
 package com.bms.cart.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,18 +24,21 @@ public class CartController {
 	@RequestMapping(value="/insertCart.do" , method=RequestMethod.POST)
 	public String insertCart(CartDto cdto) throws Exception {
 		
-		System.out.println(cdto.getCartGoodsQty() + "," + cdto.getGoodsId() + "," + cdto.getMemberId()); // 1, 2, qwe
-		
 		cartService.insertCart(cdto);
-		
 		
 		return "redirect:/cart/cartList.do";
 	}
 	
 	@RequestMapping(value="/cartList.do")
-	public String cartList(Model model) throws Exception {
+	public String cartList(Model model, HttpServletRequest request) throws Exception {
 		
-		cartService.getAllCart();
+		HttpSession session = request.getSession();
+		
+		session = request.getSession();
+		session.setAttribute("sideMenu", "myPage");
+		
+		List<CartDto> myCartList = cartService.getAllCart();
+		model.addAttribute("myCartList" , myCartList);
 		
 		return "/cart/cartListMain";
 	}
