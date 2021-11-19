@@ -44,11 +44,11 @@ import com.bms.goods.dto.ImageFileDto;
 @RequestMapping(value="/admin/goods")
 public class AdminGoodsController {
 	
-	private static final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
-	String seperatorPath = "\\";	// window
+	//private static final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
+	//String seperatorPath = "\\";	// window
 
-	//private static final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat8/file_repo";
-	//String seperatorPath = "/";		// linux
+	private static final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat8/file_repo";
+	String seperatorPath = "/";		// linux
 	
 	@Autowired
 	private AdminGoodsService adminGoodsService;
