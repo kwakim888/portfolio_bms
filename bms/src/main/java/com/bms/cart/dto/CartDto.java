@@ -12,6 +12,9 @@ public class CartDto {
 	private int goodsId;
 	private int cartGoodsQty;
 	private String goodsTitle;
+	private int goodsSalesPrice;
+	private int goodsDeliveryPrice;
+	private String goodsFileName;
 	private Date credate;
 	
 	public int getCartId() {
@@ -43,6 +46,24 @@ public class CartDto {
 	}
 	public void setGoodsTitle(String goodsTitle) {
 		this.goodsTitle = goodsTitle;
+	}
+	public int getGoodsSalesPrice() {
+		return goodsSalesPrice;
+	}
+	public void setGoodsSalesPrice(int goodsSalesPrice) {
+		this.goodsSalesPrice = goodsSalesPrice;
+	}
+	public int getGoodsDeliveryPrice() {
+		return goodsDeliveryPrice;
+	}
+	public void setGoodsDeliveryPrice(int goodsDeliveryPrice) {
+		this.goodsDeliveryPrice = goodsDeliveryPrice;
+	}
+	public String getGoodsFileName() {
+		return goodsFileName;
+	}
+	public void setGoodsFileName(String goodsFileName) {
+		this.goodsFileName = goodsFileName;
 	}
 	public Date getCredate() {
 		return credate;

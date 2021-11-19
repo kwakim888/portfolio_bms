@@ -6,6 +6,10 @@
 <html>
 <head>
 <meta   charset="utf-8">
+<script>
+
+
+</script>
 </head>
 <body>
 	<h3>장바구니</h3>

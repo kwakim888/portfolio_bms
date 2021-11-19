@@ -83,7 +83,10 @@
 	    
 	}
 	
-	function fn_cart_each_goods(goodsId, memberId, goodsTitle) {
+	// http://jsfiddle.net/jscodedev/awwkb5b9/1/ 참고(이거는 cartMain에서 결제하기 버튼을 누르면 넘어가는 값들을 말하는거다.)
+	// 여기에 array대신에 arraylist를 써서 list로 만들어본다음에 받을때 리스트로 받아서 사용하면 좋을듯
+	// @RequestParam(required = false , value="message") String[] message 이런식으로 배열을 받아온다.
+	function fn_cart_each_goods(goodsId, memberId, goodsTitle, goodsSalesPrice, goodsFileName, goodsDeliveryPrice) { 
 		
 		var orderGoodsQty = document.getElementById("orderGoodsQty");
 		var isLogOn = document.getElementById("isLogOn").value;
@@ -99,6 +102,7 @@
 		var i_member_id 		= document.createElement("input");
 		var i_cart_goods_qty 	= document.createElement("input");
 		var i_goods_title		= document.createElement("input");
+		
 		
 		i_goods_id.name			= "goodsId";
 		i_member_id.name		= "memberId";
@@ -206,7 +210,7 @@
 		</table>
 			<ul>
 				<li>
-					<a class="cart" href="javascript:fn_cart_each_goods('${goods.goodsId}','${member.memberId}','${goods.goodsTitle }')">장바구니 추가 </a>
+					<a class="cart" href="javascript:fn_cart_each_goods('${goods.goodsId}','${member.memberId}','${goods.goodsTitle }','${goods.goodsSalesPrice}','${goods.goodsFileName}' , '${goods.goodsDeliveryPrice}')">장바구니 추가 </a>
 				</li>
 				<li>
 					<a class="buy" href="javascript:fn_order_each_goods('${goods.goodsId}','${goods.goodsTitle}','${goods.goodsSalesPrice}','${goods.goodsFileName}' , '${goods.goodsDeliveryPrice}')">구매하기 </a>
