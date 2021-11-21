@@ -24,6 +24,14 @@ public class CartController {
 	@RequestMapping(value="/insertCart.do" , method=RequestMethod.POST)
 	public String insertCart(CartDto cdto) throws Exception {
 		
+		System.out.println(cdto.getGoodsId());
+		System.out.println(cdto.getCartGoodsQty());
+		System.out.println(cdto.getMemberId());
+		System.out.println(cdto.getGoodsTitle());
+		System.out.println(cdto.getGoodsSalesPrice());
+		System.out.println(cdto.getGoodsFileName());
+		System.out.println(cdto.getGoodsDeliveryPrice());
+		
 		cartService.insertCart(cdto);
 		
 		return "redirect:/cart/cartList.do";
@@ -38,9 +46,13 @@ public class CartController {
 		session.setAttribute("sideMenu", "myPage");
 		
 		List<CartDto> myCartList = cartService.getAllCart();
+		int cartSize = myCartList.size();
+		
 		model.addAttribute("myCartList" , myCartList);
+		model.addAttribute("cartSize" , cartSize);
 		
 		return "/cart/cartListMain";
+		
 	}
 	
 	@RequestMapping(value="/orderCart.do")
@@ -50,6 +62,9 @@ public class CartController {
 		return "";
 	}
 	
+	@RequestMapping(value="deleteCart.do")
+	public String deleteCart() throws Exception {
+		return "";
+	}
 	
-
 }

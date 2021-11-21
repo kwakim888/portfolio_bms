@@ -97,27 +97,39 @@
 			return;
 		} 
 		
-		var formObj 			= document.createElement("form");
-		var i_goods_id			= document.createElement("input");
-		var i_member_id 		= document.createElement("input");
-		var i_cart_goods_qty 	= document.createElement("input");
-		var i_goods_title		= document.createElement("input");
+		var formObj 				= document.createElement("form");
+		var i_goods_id				= document.createElement("input");
+		var i_member_id 			= document.createElement("input");
+		var i_cart_goods_qty 		= document.createElement("input");
+		var i_goods_title			= document.createElement("input");
+		var i_goods_sales_price 	= document.createElement("input");
+		var i_goods_file_name		= document.createElement("input");
+		var i_goods_delivery_price 	= document.createElement("input");
 		
-		
-		i_goods_id.name			= "goodsId";
-		i_member_id.name		= "memberId";
-		i_cart_goods_qty.name	= "cartGoodsQty";
-		i_goods_title.name		= "goodsTitle";
-		
-		i_goods_id.value		= goodsId;
-		i_member_id.value		= memberId;
-		i_cart_goods_qty.value	= orderGoodsQty.value;
-		i_goods_title.value		= goodsTitle;
+		i_goods_id.name				= "goodsId";
+		i_member_id.name			= "memberId";
+		i_cart_goods_qty.name		= "cartGoodsQty";
+		i_goods_title.name			= "goodsTitle";
+		i_goods_sales_price.name 	= "goodsSalesPrice";
+		i_goods_file_name.name 		= "goodsFileName";
+		i_goods_delivery_price.name = "goodsDeliveryPrice";
+									
+		i_goods_id.value				= goodsId;
+		i_member_id.value				= memberId;
+		i_cart_goods_qty.value			= orderGoodsQty.value;
+		i_goods_title.value				= goodsTitle;
+		i_goods_sales_price.value 		= goodsSalesPrice;
+		i_goods_file_name.value 		= goodsFileName;
+		i_goods_delivery_price.value 	= goodsDeliveryPrice;
 		
 		formObj.appendChild(i_goods_id);
 		formObj.appendChild(i_member_id);
 		formObj.appendChild(i_cart_goods_qty);
 		formObj.appendChild(i_goods_title);
+		formObj.appendChild(i_goods_sales_price);
+		formObj.appendChild(i_goods_file_name);
+		formObj.appendChild(i_goods_delivery_price);
+		
 		
 		document.body.appendChild(formObj);
 		formObj.method = "post";

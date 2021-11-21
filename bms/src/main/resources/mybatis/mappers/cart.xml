@@ -16,6 +16,9 @@
 			  #{goodsId},
 			  #{cartGoodsQty},
 			  #{goodsTitle},
+			  #{goodsSalesPrice},
+			  #{goodsDeliveryPrice},
+			  #{goodsFileName},
 			  SYSDATE)
 	</insert>
 	
