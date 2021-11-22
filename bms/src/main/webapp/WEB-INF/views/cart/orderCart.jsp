@@ -185,7 +185,7 @@
 		
 		$.ajax({
 			type : "POST",
-			url  : "${contextPath}/order/payToOrderGoods.do",
+			url  : "${contextPath}/cart/payToOrderGoods.do",
 			async : false,
 			data : datas ,
 			success : function() {
