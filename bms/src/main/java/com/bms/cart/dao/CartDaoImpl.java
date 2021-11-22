@@ -24,4 +24,14 @@ public class CartDaoImpl implements CartDao {
 		return sqlSession.selectList("mapper.cart.getAllCart");
 	}
 
+	@Override
+	public void deleteCart(String[] data) throws Exception {
+		sqlSession.delete("mapper.cart.deleteCart" , data);
+	}
+
+	@Override
+	public CartDto getOneCart(String[] data) throws Exception {
+		return sqlSession.selectOne("mapper.cart.getOneCart" , data);
+	}
+
 }

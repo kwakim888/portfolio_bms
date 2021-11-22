@@ -108,7 +108,7 @@
 		
 		i_goods_id.name				= "goodsId";
 		i_member_id.name			= "memberId";
-		i_cart_goods_qty.name		= "cartGoodsQty";
+		i_cart_goods_qty.name		= "orderGoodsQty";
 		i_goods_title.name			= "goodsTitle";
 		i_goods_sales_price.name 	= "goodsSalesPrice";
 		i_goods_file_name.name 		= "goodsFileName";
@@ -129,7 +129,6 @@
 		formObj.appendChild(i_goods_sales_price);
 		formObj.appendChild(i_goods_file_name);
 		formObj.appendChild(i_goods_delivery_price);
-		
 		
 		document.body.appendChild(formObj);
 		formObj.method = "post";

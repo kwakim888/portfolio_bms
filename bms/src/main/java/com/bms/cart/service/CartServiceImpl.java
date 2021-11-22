@@ -24,4 +24,14 @@ public class CartServiceImpl implements CartService {
 		return cartDao.getAllCart();
 	}
 
+	@Override
+	public void deleteCart(String[] data) throws Exception {
+		cartDao.deleteCart(data);
+	}
+
+	@Override
+	public CartDto getOneCart(String[] data) throws Exception {
+		return cartDao.getOneCart(data);
+	}
+
 }

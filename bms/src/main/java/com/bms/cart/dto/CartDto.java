@@ -10,7 +10,7 @@ public class CartDto {
 	private int cartId;
 	private String memberId;
 	private int goodsId;
-	private int cartGoodsQty;
+	private int orderGoodsQty;
 	private String goodsTitle;
 	private int goodsSalesPrice;
 	private int goodsDeliveryPrice;
@@ -35,11 +35,11 @@ public class CartDto {
 	public void setGoodsId(int goodsId) {
 		this.goodsId = goodsId;
 	}
-	public int getCartGoodsQty() {
-		return cartGoodsQty;
+	public int getOrderGoodsQty() {
+		return orderGoodsQty;
 	}
-	public void setCartGoodsQty(int cartGoodsQty) {
-		this.cartGoodsQty = cartGoodsQty;
+	public void setOrderGoodsQty(int orderGoodsQty) {
+		this.orderGoodsQty = orderGoodsQty;
 	}
 	public String getGoodsTitle() {
 		return goodsTitle;
@@ -71,5 +71,5 @@ public class CartDto {
 	public void setCredate(Date credate) {
 		this.credate = credate;
 	}
-	
+
 }

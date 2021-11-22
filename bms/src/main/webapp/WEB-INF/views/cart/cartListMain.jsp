@@ -9,27 +9,61 @@
 <script>
 
 	
-	function change_price() {
-		var price = document.getElementById("goodsSalesPrice_hidden").value;
-		var qty = document.getElementById("cartGoodsQty").value;
+	function order_cart() {
 		
-		alert(qty);
-		alert(price);
+		var isDelete = false;
+		for (var i = 0; i < ${cartSize }; i++) {
+			if (document.getElementsByName("selectCart")[i].checked == true) {
+				isDelete = true;
+			}
+		}
+		
+		if (!isDelete) {
+			alert("주문할 항목을 선택해주세요.");
+			return;
+		}
+		
+		if (isDelete) {
+			// for문 안에 var ""를 넣어서 계속 리셋되어진다 그래서 빈칸 그래서 밖으로 빼줘야한다.
+			var send_data = "";
+			for (var i = 0; i < ${cartSize }; i++) {
+				if (document.getElementsByName("selectCart")[i].checked == true) {
+					send_data += document.getElementById(i).value + "/";
+				}
+			}
+			location.href = "${contextPath}/cart/orderCart.do?selectCartId="+send_data;
+		}
 		
 	}
 	
 	function delete_cart() {
-		var send_data = 
+		
+		var isDelete = false;
+		var cnt = 0;
 		for (var i = 0; i < ${cartSize }; i++) {
-			
 			if (document.getElementsByName("selectCart")[i].checked == true) {
-				var index = i + 1;
-				alert(document.getElementById(index).value);
-				
+				isDelete = true;
+				cnt ++;
 			}
-			
 		}
-	
+		
+		if (!isDelete) {
+			alert("삭제할 항목을 선택해주세요.");
+			return;
+		}
+		
+		if (isDelete) {
+			// for문 안에 var ""를 넣어서 계속 리셋되어진다 그래서 빈칸 그래서 밖으로 빼줘야한다.
+			var send_data = "";
+			for (var i = 0; i < ${cartSize }; i++) {
+				if (document.getElementsByName("selectCart")[i].checked == true) {
+					send_data += document.getElementById(i).value + "/";
+				}
+			}
+			alert("삭제되었습니다.")
+			location.href = "${contextPath}/cart/deleteCart.do?selectCartId="+send_data;
+		}
+		
 	}
 	
 	
@@ -60,14 +94,14 @@
 				     </tr>
 				</c:when>
 			 	<c:otherwise>
-			    	<c:forEach var="cart" items="${myCartList }">
+			    	<c:forEach var="cart" items="${myCartList }" varStatus="status" >
 				 		<tr>       
 							<td>
 								<input type="checkbox" name="selectCart" id="selectCart">
 							</td>
 							<td>
-						 		<strong>${cart.cartId }</strong>
-						 		<input type="hidden" id="${cart.cartId }" value="${cart.goodsTitle }" />
+						 		<strong>${status.count }</strong>
+						 		<input type="hidden" id="${status.index }" value="${cart.cartId }" />
 							</td>
 							<td>
 								<img alt="상품 이미지" src="${contextPath}/thumbnails.do?goodsId=${cart.goodsId}&fileName=${cart.goodsFileName}">
@@ -76,7 +110,7 @@
 						   		<strong>${cart.goodsTitle }</strong>
 							</td>
 							<td>
-								<strong>${cart.cartGoodsQty }</strong>
+								<strong>${cart.orderGoodsQty }</strong>
 							</td>
 							<td>
 						    	<strong>
@@ -84,14 +118,14 @@
 							 	</strong>
 							</td>
 							<td>
-								<strong><span id="goodsSalesPrice" >${cart.goodsSalesPrice * cart.cartGoodsQty }</span></strong>
-								<input type="hidden" value="${cart.goodsSalesPrice * cart.cartGoodsQty }" id="goodsSalesPrice_hidden">
+								<strong><span id="goodsSalesPrice" >${cart.goodsSalesPrice * cart.orderGoodsQty }</span></strong>
+								<input type="hidden" value="${cart.goodsSalesPrice * cart.orderGoodsQty }" id="goodsSalesPrice_hidden">
 							</td>
 							<td>
 								<strong>${cart.goodsDeliveryPrice }</strong>
 							</td>
 						</tr>
-						<c:set var="total" value="${total + cart.goodsSalesPrice * cart.cartGoodsQty + cart.goodsDeliveryPrice }" />
+						<c:set var="total" value="${total + cart.goodsSalesPrice * cart.orderGoodsQty + cart.goodsDeliveryPrice }" />
 					</c:forEach>
 				</c:otherwise>
 		  	</c:choose>
@@ -101,7 +135,7 @@
 	<h3 style="color: black">총 합계 : ${total }</h3>
 	<br><br>
 		<div align="right">
-			<input class="btn btn-success btn-sm" type="button" onclick="location.href='${contextPath}/cart/orderCart.do'" value="장바구니 결제하기">
+			<input class="btn btn-success btn-sm" type="button" onclick="order_cart();" value="장바구니 결제하기">
 			<input type="button" value="삭제하기" class="btn btn-outline-danger btn-sm" onclick="delete_cart();" id="delete_cart" />			
 		</div>
 </body>

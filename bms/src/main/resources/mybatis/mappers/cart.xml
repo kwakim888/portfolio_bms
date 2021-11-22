@@ -14,7 +14,7 @@
 			  		T_SHOPPING_CART),
 			  #{memberId},
 			  #{goodsId},
-			  #{cartGoodsQty},
+			  #{orderGoodsQty},
 			  #{goodsTitle},
 			  #{goodsSalesPrice},
 			  #{goodsDeliveryPrice},
@@ -27,6 +27,28 @@
 				*
 		FROM
 				T_SHOPPING_CART
+		ORDER BY
+				CART_ID ASC
+	</select>
+	
+	<delete id="deleteCart" parameterType="map">
+		<foreach collection="array" item="data">
+			DELETE FROM
+					T_SHOPPING_CART
+			WHERE
+					CART_ID = #{data}
+		</foreach>
+	</delete>
+	
+	<select id="getOneCart" parameterType="map" resultType="CartDto">
+		<foreach collection="array" item="data">
+		SELECT
+				*
+		FROM
+				T_SHOPPING_CART
+		WHERE
+				CART_ID = #{data}
+		</foreach>
 	</select>
 
 </mapper>
