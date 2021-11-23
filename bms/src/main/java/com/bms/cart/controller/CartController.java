@@ -109,13 +109,13 @@ public class CartController {
 		String ordererHp = memberDto.getHp1() + "-" + memberDto.getHp2() + "-" + memberDto.getHp3();
 		
 		
-		OrderDto orderDto = new OrderDto();;
+		OrderDto orderDto = new OrderDto();
 		orderDto.setMemberId(memberId);
 		orderDto.setOrdererName(ordererName);
-		orderDto.setGoodsId(Integer.parseInt((String)(goodsInfo.get("goodsId"))));
+		orderDto.setGoodsId(Integer.parseInt(String.valueOf(goodsInfo.get("goodsId"))));
 		orderDto.setGoodsTitle((String)goodsInfo.get("goodsTitle"));
-		orderDto.setGoodsSalesPrice(Integer.parseInt((String)(goodsInfo.get("goodsSalesPrice"))));
-		orderDto.setOrderGoodsQty(Integer.parseInt((String)(goodsInfo.get("orderGoodsQty"))));
+		orderDto.setGoodsSalesPrice(Integer.parseInt(String.valueOf(goodsInfo.get("goodsSalesPrice"))));
+		orderDto.setOrderGoodsQty(Integer.parseInt(String.valueOf(goodsInfo.get("orderGoodsQty"))));
 		orderDto.setReceiverName(receiverMap.get("receiverName"));
 		orderDto.setReceiverHp1(receiverMap.get("receiverHp1"));
 		orderDto.setReceiverHp2(receiverMap.get("receiverHp2"));

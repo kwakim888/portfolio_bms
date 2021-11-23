@@ -11,11 +11,18 @@
 	
 	function order_cart() {
 		
+		var cnt = 0;
 		var isDelete = false;
 		for (var i = 0; i < ${cartSize }; i++) {
 			if (document.getElementsByName("selectCart")[i].checked == true) {
+				cnt++;
 				isDelete = true;
 			}
+		}
+		
+		if (cnt > 1) {
+			alert("1개만 선택해주세요.");
+			return;
 		}
 		
 		if (!isDelete) {
@@ -38,12 +45,12 @@
 	
 	function delete_cart() {
 		
-		var isDelete = false;
 		var cnt = 0;
+		var isDelete = false;
 		for (var i = 0; i < ${cartSize }; i++) {
 			if (document.getElementsByName("selectCart")[i].checked == true) {
+				cnt++;
 				isDelete = true;
-				cnt ++;
 			}
 		}
 		

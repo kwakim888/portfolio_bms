@@ -21,7 +21,7 @@
 			  #{goodsFileName},
 			  SYSDATE)
 	</insert>
-	
+
 	<select id="getAllCart" resultType="CartDto">
 		SELECT
 				*
@@ -32,23 +32,19 @@
 	</select>
 	
 	<delete id="deleteCart" parameterType="map">
-		<foreach collection="array" item="data">
 			DELETE FROM
 					T_SHOPPING_CART
 			WHERE
 					CART_ID = #{data}
-		</foreach>
 	</delete>
 	
 	<select id="getOneCart" parameterType="map" resultType="CartDto">
-		<foreach collection="array" item="data">
 		SELECT
 				*
 		FROM
 				T_SHOPPING_CART
 		WHERE
 				CART_ID = #{data}
-		</foreach>
 	</select>
 
 </mapper>

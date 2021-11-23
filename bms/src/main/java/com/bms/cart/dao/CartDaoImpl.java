@@ -26,7 +26,9 @@ public class CartDaoImpl implements CartDao {
 
 	@Override
 	public void deleteCart(String[] data) throws Exception {
-		sqlSession.delete("mapper.cart.deleteCart" , data);
+		for (int i = 0; i < data.length; i++) {
+			sqlSession.delete("mapper.cart.deleteCart" , data[i]);
+		}
 	}
 
 	@Override
