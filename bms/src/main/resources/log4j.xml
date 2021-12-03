@@ -12,7 +12,7 @@
 	
 	<!-- DailyFile Appenders -->	
 	<appender name="dailyFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="C:\\bms\\logs\\bms.log" />	<!-- C:\\bms\\logs\\bms.log -->	
+		<param name="File" value="/var/lib/tomcat8/bms.log" />	<!-- C:\\bms\\logs\\bms.log -->	
 																<!-- /var/lib/tomcat8/bms.log -->
 		<layout class="org.apache.log4j.PatternLayout">
 		  <param name="DatePattern"   value="'.'yyyy-MM-dd"/>
